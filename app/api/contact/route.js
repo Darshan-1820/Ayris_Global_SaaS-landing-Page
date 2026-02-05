@@ -120,9 +120,18 @@ Submitted via Ayris Global Contact Form`,
     });
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('Resend error:', JSON.stringify(error));
+
+      // Check for common Resend errors
+      if (error.message?.includes('verify a domain') || error.message?.includes('can only send')) {
+        return NextResponse.json(
+          { error: 'Email service configuration issue. Please contact us directly at contact@ayrisglobal.com' },
+          { status: 503 }
+        );
+      }
+
       return NextResponse.json(
-        { error: 'Failed to send message. Please try again.' },
+        { error: `Failed to send message: ${error.message || 'Unknown error'}` },
         { status: 500 }
       );
     }
