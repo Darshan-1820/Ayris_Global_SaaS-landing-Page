@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer components {
+  /* Define custom variables if needed or just use them */
+}
+
+:root {
+  /* Primary Brand Colors - Trust & Innovation */
+  --primary: #0A7CFF;       /* Royal Blue - Trust */
+  --primary-dark: #0056B3;
+  --primary-light: #60A5FA;
+  --primary-50: #EFF6FF;
+  
+  --accent: #F97316;        /* Vibrant Orange - Action */
+  --accent-dark: #EA580C;
+  --accent-light: #FB923C;
+  --accent-50: #FFF7ED;
+
+  /* Neutrals */
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  --muted: #64748B;
+  --border: #E2E8F0;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0A7CFF 0%, #06B6D4 100%);
+  --gradient-accent: linear-gradient(135deg, #F97316 0%, #F59E0B 100%);
+  
+  /* Surface Colors */
+  --surface-50: #F8FAFC;
+  --surface-100: #F1F5F9;
+  --surface-200: #E2E8F0;
+}
+
+@layer base {
+  html {
+    /* scroll-behavior: smooth; <- Removed to prevent scroll-up animation triggering effects */
+  }
+  
+  body {
+    @apply antialiased text-gray-900 bg-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-white transition-all duration-200 shadow-lg hover:shadow-blue-500/25 active:scale-95;
+    background-color: var(--primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-gray-700 transition-all duration-200 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-white transition-all duration-200 shadow-lg hover:shadow-orange-500/25 active:scale-95;
+    background-color: var(--accent);
+  }
+  .btn-accent:hover {
+    background-color: var(--accent-dark);
+  }
+
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 3s infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.95); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Custom Utilities */
+.mask-v-fade {
+  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
