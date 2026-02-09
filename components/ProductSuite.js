@@ -80,58 +80,58 @@ export default function ProductSuite() {
         {/* Product Grid - Original Gradient Cards */}
         <div className="grid lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <motion.div 
-              key={product.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ 
-                scale: 1.03, 
-                y: -8,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-              }}
-              viewport={{ once: true }}
-              transition={{ 
-                opacity: { duration: 0.6, delay: index * 0.2 },
-                y: { duration: 0.6, delay: index * 0.2 },
-                scale: { type: "spring", stiffness: 400, damping: 25 }
-              }}
-              className="bg-white rounded-[2rem] p-2 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col h-full group transition-colors duration-300"
-            >
-              {/* Card Header & Icon */}
-              <div className={`rounded-[1.5rem] p-8 bg-gradient-to-br ${product.gradient} text-white relative overflow-hidden h-64 flex flex-col justify-between`}>
-                <div className="relative z-10 w-fit p-3 bg-white/20 backdrop-blur-md rounded-2xl mb-4">
-                  {product.icon}
-                </div>
-                
-                {/* Decorative Pattern */}
-                <div className="absolute top-0 right-0 p-8 opacity-10">
-                   <svg width="100" height="100" viewBox="0 0 100 100" fill="currentColor">
-                     <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="2" fill="none" />
-                     <path d="M50 10 L50 90 M10 50 L90 50" stroke="currentColor" strokeWidth="2" />
-                   </svg>
+            <Link key={product.id} href={product.href || "#"} className="block h-full">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -8,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  opacity: { duration: 0.6, delay: index * 0.2 },
+                  y: { duration: 0.6, delay: index * 0.2 },
+                  scale: { type: "spring", stiffness: 400, damping: 25 }
+                }}
+                className="bg-white rounded-[2rem] p-2 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col h-full group transition-colors duration-300 cursor-pointer"
+              >
+                {/* Card Header & Icon */}
+                <div className={`rounded-[1.5rem] p-8 bg-gradient-to-br ${product.gradient} text-white relative overflow-hidden h-64 flex flex-col justify-between`}>
+                  <div className="relative z-10 w-fit p-3 bg-white/20 backdrop-blur-md rounded-2xl mb-4">
+                    {product.icon}
+                  </div>
+
+                  {/* Decorative Pattern */}
+                  <div className="absolute top-0 right-0 p-8 opacity-10">
+                     <svg width="100" height="100" viewBox="0 0 100 100" fill="currentColor">
+                       <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="2" fill="none" />
+                       <path d="M50 10 L50 90 M10 50 L90 50" stroke="currentColor" strokeWidth="2" />
+                     </svg>
+                  </div>
+
+                  <div className="relative z-10">
+                    <span className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2 block">{product.category}</span>
+                    <h3 className="text-3xl font-bold">{product.title}</h3>
+                  </div>
                 </div>
 
-                <div className="relative z-10">
-                  <span className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2 block">{product.category}</span>
-                  <h3 className="text-3xl font-bold">{product.title}</h3>
+                {/* Content */}
+                <div className="p-8 flex-grow flex flex-col pt-6">
+                  <p className="font-light text-gray-500 leading-relaxed mb-8 flex-grow">
+                    {product.description}
+                  </p>
+
+                  <span
+                    className="group/btn inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border border-gray-400 rounded-xl shadow-sm group-hover:border-[#F97316] group-hover:text-[#F97316] group-hover:shadow-lg group-hover:shadow-orange-500/10"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-8 flex-grow flex flex-col pt-6">
-                <p className="font-light text-gray-500 leading-relaxed mb-8 flex-grow">
-                  {product.description}
-                </p>
-
-                <Link 
-                  href={product.href || "#"} 
-                  className="group/btn inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border border-gray-400 rounded-xl shadow-sm hover:border-[#F97316] hover:text-[#F97316] hover:shadow-lg hover:shadow-orange-500/10"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
-                </Link>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

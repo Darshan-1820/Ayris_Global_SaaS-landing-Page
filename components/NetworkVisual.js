@@ -148,9 +148,16 @@ function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
         initNodes();
         window.addEventListener('resize', handleResize);
 
-        // Auto Selection Loop
+        // Auto Selection Loop — only pick nodes in a central zone
+        // so tooltips don't appear at extreme edges
         const selectionInterval = setInterval(() => {
-            const availableNodes = nodesRef.current.filter(n => n.type === 'label');
+            const w = canvas.width;
+            const h = canvas.height;
+            const availableNodes = nodesRef.current.filter(n =>
+                n.type === 'label' &&
+                n.x > w * 0.55 && n.x < w * 0.88 &&
+                n.y > h * 0.2 && n.y < h * 0.8
+            );
 
             if (availableNodes.length > 0) {
                 const randomNode = availableNodes[Math.floor(Math.random() * availableNodes.length)];

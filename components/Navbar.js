@@ -43,7 +43,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9">
+            <div className="relative w-11 h-11">
               <Image
                 src="/logo.png"
                 alt="Ayris Global Logo"
