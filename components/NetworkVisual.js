@@ -64,8 +64,9 @@ export default function NetworkVisual() {
 function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
     const canvasRef = useRef(null);
     const mouseRef = useRef({ x: -1000, y: -1000 });
-    const nodesRef = useRef([]); // Store nodes in ref to avoid re-initialization
+    const nodesRef = useRef([]);
     const activeNodeRef = useRef(activeNode);
+    const lastTooltipPos = useRef({ x: 0, y: 0 });
 
     // Sync ref
     useEffect(() => {
@@ -75,8 +76,7 @@ function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
-        
-        // Handle Mouse Move Globally to avoid z-index blocking
+
         const handleWindowMouseMove = (e) => {
             if (canvas) {
                 const rect = canvas.getBoundingClientRect();
@@ -89,66 +89,69 @@ function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
         window.addEventListener('mousemove', handleWindowMouseMove);
 
         let animationFrameId;
-
-        const resize = () => {
-            if (canvas.parentElement) {
-                canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = canvas.parentElement.clientHeight;
-                
-                if (nodesRef.current.length === 0) {
-                   initNodes();
-                }
-            }
-        };
+        let resizeTimer = null;
 
         const initNodes = () => {
              const width = canvas.width;
              const height = canvas.height;
-             const textBoundary = width < 768 ? 0 : width * 0.55; // Strict 55% split to avoid text overlap
-             
-             const extraNodesCount = 30; 
+             const textBoundary = width < 768 ? 0 : width * 0.55;
+
+             const extraNodesCount = width < 768 ? 15 : 30;
              const allNodes = [];
 
-             // Labeled nodes - Distribute strategically on the right
-             nodesData.forEach((data, i) => {
+             nodesData.forEach((data) => {
                  allNodes.push({
                      ...data,
                      type: 'label',
                      x: textBoundary + Math.random() * (width - textBoundary),
                      y: Math.random() * height,
-                     vx: (Math.random() - 0.5) * 0.15, 
+                     vx: (Math.random() - 0.5) * 0.15,
                      vy: (Math.random() - 0.5) * 0.15,
                      radius: 4
                  });
              });
-             
-             // Filler nodes - Distribute on the right
+
              for (let i = 0; i < extraNodesCount; i++) {
                  allNodes.push({
                      id: `filler-${i}`,
                      type: 'filler',
                      x: textBoundary + Math.random() * (width - textBoundary),
                      y: Math.random() * height,
-                     vx: (Math.random() - 0.5) * 0.08, 
+                     vx: (Math.random() - 0.5) * 0.08,
                      vy: (Math.random() - 0.5) * 0.08,
-                     radius: 2 
+                     radius: 2
                  });
              }
-             
+
              nodesRef.current = allNodes;
+        };
+
+        const resize = () => {
+            if (canvas.parentElement) {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+        };
+
+        // Debounced resize: resize canvas immediately for visual smoothness,
+        // but only reinitialize nodes after user stops resizing (200ms)
+        const handleResize = () => {
+            resize();
+            if (resizeTimer) clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                initNodes();
+            }, 200);
         };
 
         // Initial setup
         resize();
-        window.addEventListener('resize', resize);
-        
+        initNodes();
+        window.addEventListener('resize', handleResize);
+
         // Auto Selection Loop
         const selectionInterval = setInterval(() => {
-            const width = canvas.width;
-            
-            // Filter nodes that are visible/active
             const availableNodes = nodesRef.current.filter(n => n.type === 'label');
-            
+
             if (availableNodes.length > 0) {
                 const randomNode = availableNodes[Math.floor(Math.random() * availableNodes.length)];
                 setActiveNode(randomNode);
@@ -161,7 +164,7 @@ function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
             const textBoundary = width < 768 ? 0 : width * 0.55;
 
             ctx.clearRect(0, 0, width, height);
-            
+
             const activeData = activeNodeRef.current;
             const mouseX = mouseRef.current.x;
             const mouseY = mouseRef.current.y;
@@ -170,16 +173,21 @@ function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
             nodesRef.current.forEach(node => {
                 node.x += node.vx;
                 node.y += node.vy;
-                
+
                 // Bounce from edges and text boundary
                 if (node.x < textBoundary) { node.x = textBoundary; node.vx *= -1; }
                 if (node.x > width) { node.x = width; node.vx *= -1; }
                 if (node.y < 0) { node.y = 0; node.vy *= -1; }
                 if (node.y > height) { node.y = height; node.vy *= -1; }
-                
-                // Track active node position
+
+                // Track active node — only trigger React update if position moved >2px
                 if (activeData && activeData.id === node.id) {
-                     setTooltipPos({ x: node.x, y: node.y });
+                    const dx = node.x - lastTooltipPos.current.x;
+                    const dy = node.y - lastTooltipPos.current.y;
+                    if (dx * dx + dy * dy > 4) {
+                        lastTooltipPos.current = { x: node.x, y: node.y };
+                        setTooltipPos({ x: node.x, y: node.y });
+                    }
                 }
             });
 
@@ -266,17 +274,19 @@ function CanvasLogic({ nodesData, setActiveNode, activeNode, setTooltipPos }) {
         render();
 
         return () => {
-            window.removeEventListener('resize', resize);
+            window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleWindowMouseMove);
+            if (resizeTimer) clearTimeout(resizeTimer);
             clearInterval(selectionInterval);
             cancelAnimationFrame(animationFrameId);
         };
     }, [nodesData, setActiveNode, setTooltipPos]);
 
-    // Removed local mouse handlers since we use window listener
     return (
-        <canvas 
-            ref={canvasRef} 
+        <canvas
+            ref={canvasRef}
+            role="img"
+            aria-label="Animated network visualization showing interconnected payment infrastructure nodes"
             className="absolute inset-0 w-full h-full"
         />
     );
