@@ -175,6 +175,5 @@ public/
 
 ## Deployment
 
-The site is deployed on **Vercel**. Push to `main` to trigger automatic deployment.
+We will deploy it to Hostinger...
 
-Make sure to set `RESEND_API_KEY` and `CONTACT_EMAIL` in your Vercel project's Environment Variables (Settings > Environment Variables).
