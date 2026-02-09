@@ -15,8 +15,27 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Ayris Global | Payment Solutions & Consulting",
-  description: "Empowering the payment ecosystem with precision, innovation, and reliability. Building secure, scalable, and future-ready solutions for modern financial infrastructure.",
+  title: "Ayris Global | Payment Infrastructure & Consulting",
+  description: "Accelerate certification, streamline acceptance, and build global payment products with modular, cloud-native infrastructure. PCI-DSS compliant solutions by Ayris Global.",
+  keywords: ["payment infrastructure", "PCI-DSS", "payment consulting", "EMV certification", "SoftPOS", "cloud-native payments", "Ayris Global"],
+  authors: [{ name: "Ayris Global" }],
+  openGraph: {
+    title: "Ayris Global | Payment Infrastructure & Consulting",
+    description: "Build payments that just work. Modular, cloud-native payment infrastructure for modern enterprises.",
+    url: "https://ayrisglobal.com",
+    siteName: "Ayris Global",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ayris Global | Payment Infrastructure & Consulting",
+    description: "Build payments that just work. Modular, cloud-native payment infrastructure for modern enterprises.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

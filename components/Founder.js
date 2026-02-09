@@ -17,7 +17,7 @@ export default function Founder() {
 
             <div className="grid md:grid-cols-[1fr_auto] gap-12 items-center">
               <div>
-                <div className="text-xl font-light text-gray-600 leading-relaxed mb-8 min-h-[5rem]">
+                <div className="text-lg sm:text-xl font-normal text-gray-700 leading-relaxed mb-8 min-h-[5rem]">
                    <TypingText 
                      text='"We built Ayris Global to solve the fragmentation in payment infrastructure. After years leading certification at Discover, I realized the industry needed a unified, modular stack that just works."'
                      speed={20}

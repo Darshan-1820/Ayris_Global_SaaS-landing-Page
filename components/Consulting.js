@@ -101,7 +101,7 @@ export default function Consulting() {
                 <h2 className="text-3xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-6 pb-2 leading-tight">
                     Payment consulting and advisory
                 </h2>
-                <div className="text-gray-300 max-w-3xl mx-auto min-h-[3rem] flex items-center justify-center text-lg font-light leading-relaxed">
+                <div className="text-gray-300 max-w-3xl mx-auto min-h-[3rem] flex items-center justify-center text-base sm:text-lg font-normal leading-relaxed">
                    <TypingText text="Beyond our platform, we offer deep expertise in certification planning, POS strategy, and payment modernization to help you navigate complex schemes." speed={30} delay={500} />
                 </div>
             </div>
@@ -134,7 +134,7 @@ export default function Consulting() {
             </div>
             
              {/* Background Glow similar to Features */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-blue-500/10 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
 
         </div>
     </section>

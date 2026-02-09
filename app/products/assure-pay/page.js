@@ -62,11 +62,11 @@ export default function AssurePAYPage() {
         {/* Background Pattern */}
         <div className="absolute inset-0 z-0">
             <GridPattern className="opacity-[0.3] text-gray-200" />
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-3xl opacity-50" />
+            <div className="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-blue-100/50 rounded-full blur-3xl opacity-50" />
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             
             {/* Left Content */}
             <div className="max-w-2xl">

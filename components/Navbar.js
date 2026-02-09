@@ -63,7 +63,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-[15px] font-medium text-gray-600 hover:text-[#0A7CFF] transition-colors"
+                  className="text-[15px] font-medium text-gray-600 hover:text-[#0A7CFF] focus:text-[#0A7CFF] focus:outline-none focus:underline transition-colors"
                 >
                   {link.name}
                 </a>
@@ -82,7 +82,10 @@ export default function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700"
+            className="md:hidden p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0A7CFF] focus:ring-offset-2 rounded-lg"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <div className="space-y-1.5">
               <span className={`block w-6 h-0.5 bg-current transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -94,6 +97,10 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
+          id="mobile-menu"
+          role="navigation"
+          aria-label="Mobile navigation"
+          aria-hidden={!mobileMenuOpen}
           className={`md:hidden overflow-hidden transition-all duration-300 ${
             mobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
           }`}
