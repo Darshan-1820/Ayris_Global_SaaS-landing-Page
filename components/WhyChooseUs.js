@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
               </motion.svg>
             </span> their payment infrastructure with a unified digital-first environment.
           </h3>
-          <p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal">
              By replacing manual testing steps, inconsistent acceptance processes, physical logistics, and scattered debugging tools, Ayris Global delivers faster certification cycles, reliable transaction outcomes, real-time debugging visibility, and complete control over the payment lifecycle.
           </p>
 

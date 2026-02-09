@@ -14,7 +14,7 @@ export default function ContactSection() {
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight leading-[1.1]">
                 Ready to modernize your payments?
               </h2>
-              <p className="text-xl font-light text-gray-500 mb-10 leading-relaxed">
+              <p className="text-xl font-normal text-gray-600 mb-10 leading-relaxed">
                 Contact our team to discuss your requirements, request a demo, or learn more about our certification services.
               </p>
             </div>

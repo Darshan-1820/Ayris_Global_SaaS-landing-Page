@@ -101,7 +101,7 @@ export default function Consulting() {
                 <h2 className="text-3xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-6 pb-2 leading-tight">
                     Payment consulting and advisory
                 </h2>
-                <div className="text-gray-400 max-w-3xl mx-auto min-h-[3rem] flex items-center justify-center text-lg font-light leading-relaxed">
+                <div className="text-gray-300 max-w-3xl mx-auto min-h-[3rem] flex items-center justify-center text-lg font-light leading-relaxed">
                    <TypingText text="Beyond our platform, we offer deep expertise in certification planning, POS strategy, and payment modernization to help you navigate complex schemes." speed={30} delay={500} />
                 </div>
             </div>
@@ -114,7 +114,7 @@ export default function Consulting() {
                             <service.icon className="w-6 h-6 text-gray-300" />
                         </div>
                         <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
+                        <p className="text-gray-300 text-sm leading-relaxed">{service.desc}</p>
                     </SpotlightCard>
                 ))}
                  

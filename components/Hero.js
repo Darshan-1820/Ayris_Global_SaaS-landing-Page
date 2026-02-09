@@ -36,7 +36,7 @@ export default function Hero() {
             </p>
 
             {/* Typing Description */}
-            <div className="text-base sm:text-lg font-light text-gray-600 leading-relaxed mb-8 sm:mb-10 min-h-[4.5rem] sm:min-h-[5rem] lg:min-h-[5rem]">
+            <div className="text-base sm:text-lg font-normal text-gray-700 leading-relaxed mb-8 sm:mb-10 min-h-[4.5rem] sm:min-h-[5rem] lg:min-h-[5rem]">
               <TypingText
                 text="Accelerate certification, streamline acceptance, and build global payment products with a modular, cloud-native infrastructure."
                 speed={20}

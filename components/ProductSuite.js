@@ -71,7 +71,7 @@ export default function ProductSuite() {
               payment reliability
             </h2>
             
-            <p className="text-xl font-light text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl font-normal text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Ayris Global creates tools that simplify testing, improve acceptance consistency, and provide real-time control across the payment lifecycle.
             </p>
           </motion.div>
@@ -119,7 +119,7 @@ export default function ProductSuite() {
 
                 {/* Content */}
                 <div className="p-8 flex-grow flex flex-col pt-6">
-                  <p className="font-light text-gray-500 leading-relaxed mb-8 flex-grow">
+                  <p className="font-normal text-gray-600 leading-relaxed mb-8 flex-grow">
                     {product.description}
                   </p>
 
