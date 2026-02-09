@@ -35,7 +35,7 @@ export default function WhatIs_Minimal() {
               </motion.svg>
             </span> payment acceptance testing.
           </h3>
-          <p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal">
             We replace the chaos of physical test cards, spreadsheets, and unsecured logs with a unified environment for instant virtual cards, structured approval workflows, and complete, real-time audit traceability.
           </p>
 

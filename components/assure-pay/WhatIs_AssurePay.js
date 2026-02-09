@@ -35,7 +35,7 @@ export default function WhatIs_AssurePay() {
               </motion.svg>
             </span> that ensures predictable acceptance and secure spending control.
           </h3>
-          <p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal">
             Traditional wallets cannot enforce spending limits, merchant exclusions, or usage policies before authorization, forcing governance to happen too late. We remove this gap by applying rules at the moment of transaction, enabling instant provisioning, secure sharing, and total control without exposing credentials.
           </p>
 

@@ -46,7 +46,7 @@ export default function WhyAssurePAT() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Why Assure PAT?</h2>
-          <div className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed font-light min-h-[4rem]">
+          <div className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal min-h-[4rem]">
             <TypingText 
               text="Teams choose Assure PAT because it delivers faster and more accurate testing, reliable and predictable execution, complete visibility into tester activity, stronger governance, and significantly lower operational effort than manual processes or tools that only cover part of the lifecycle."
               speed={20}

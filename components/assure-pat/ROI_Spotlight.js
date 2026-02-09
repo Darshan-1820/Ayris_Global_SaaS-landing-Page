@@ -90,7 +90,7 @@ export default function ROI_Spotlight() {
         <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16 max-w-4xl mx-auto">
                 <h2 className="text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-6">Cost Reduction & ROI</h2>
-                <div className="text-lg text-gray-400 leading-relaxed min-h-[4rem]">
+                <div className="text-lg text-gray-300 leading-relaxed min-h-[4rem]">
                    <TypingText 
                      text="Organizations typically see a 50–80% reduction in physical test card issuance costs, eliminate 2–3 FTE worth of manual coordination and tracking, gain 100% audit-ready logs for every test run, and achieve an annual financial impact often reaching $300K–$500K with a payback period in under a year."
                      speed={15}
@@ -108,7 +108,7 @@ export default function ROI_Spotlight() {
                         <div className="text-sm font-bold text-white uppercase tracking-wider mb-2">
                             {stat.label}
                         </div>
-                        <p className="text-gray-400 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed">
                             {stat.desc}
                         </p>
                     </SpotlightCard>

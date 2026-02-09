@@ -92,7 +92,7 @@ export default function Features_AssurePOS() {
         <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-4">Device Capabilities</h2>
-                <div className="text-gray-400 max-w-2xl mx-auto min-h-[1.5rem] flex items-center justify-center">
+                <div className="text-gray-300 max-w-2xl mx-auto min-h-[1.5rem] flex items-center justify-center">
                    <TypingText text="Simulate, configure, and debug without hardware limits." speed={30} delay={500} />
                 </div>
             </div>
@@ -104,7 +104,7 @@ export default function Features_AssurePOS() {
                             <feature.icon className="w-6 h-6 text-gray-300" />
                         </div>
                         <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+                        <p className="text-gray-300 text-sm leading-relaxed">{feature.desc}</p>
                     </SpotlightCard>
                 ))}
             </div>

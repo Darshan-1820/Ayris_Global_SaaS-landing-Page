@@ -35,7 +35,7 @@ export default function WhatIs_AssurePOS() {
               </motion.svg>
             </span> that replicates real POS behavior directly on a smartphone.
           </h3>
-          <p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal">
             Traditional POS testing requires expensive hardware, proprietary kernels, and complex maintenance. We remove these bottlenecks by offering a configurable, brand-aligned simulation environment that produces complete transaction logs instantly—without the hardware headache.
           </p>
 

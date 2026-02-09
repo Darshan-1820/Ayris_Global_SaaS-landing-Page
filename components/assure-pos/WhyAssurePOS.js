@@ -46,7 +46,7 @@ export default function WhyAssurePOS() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Why Assure POS?</h2>
-          <div className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed font-light min-h-[4rem]">
+          <div className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal min-h-[4rem]">
             <TypingText 
               text="Teams choose Assure POS because it delivers faster, more flexible testing without the cost or complexity of physical hardware. By providing a single, consistent simulation environment, we eliminate the unpredictable behavior of physical devices and enable instant debugging from anywhere."
               speed={20}

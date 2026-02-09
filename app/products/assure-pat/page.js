@@ -39,11 +39,11 @@ export default function AssurePATPage() {
                 <ArrowLeft className="w-5 h-5 text-gray-600 group-hover:text-gray-900" />
              </div>
              <div className="flex items-center gap-3">
-                <div className="relative w-8 h-8">
-                   <Image 
-                     src="/logo.png" 
-                     alt="Ayris Global Logo" 
-                     fill 
+                <div className="relative w-11 h-11">
+                   <Image
+                     src="/logo.png"
+                     alt="Ayris Global Logo"
+                     fill
                      className="object-contain"
                    />
                 </div>
@@ -89,7 +89,7 @@ export default function AssurePATPage() {
             <div className="max-w-2xl">
                 
                 {/* Main Heading */}
-                <h1 className="text-6xl lg:text-8xl font-bold tracking-tight mb-6 text-gray-900">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6 text-gray-900">
                   Assure PAT
                 </h1>
 
