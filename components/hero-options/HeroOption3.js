@@ -20,19 +20,17 @@ const highlights = [
   { icon: Globe, label: "Cloud-Native", color: "text-cyan-600 bg-cyan-50" },
 ];
 
-export default function HeroTextAnimation() {
+// Option 3: "Build payments that just work." → brand woven into subtitle
+export default function HeroOption3() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
+    <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center overflow-hidden bg-white pt-28 sm:pt-32 pb-12 sm:pb-16">
       {/* Subtle animated background */}
       <div className="absolute inset-0">
-        {/* Soft gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40" />
-        {/* Dot grid */}
         <div className="absolute inset-0 opacity-[0.3]" style={{
           backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }} />
-        {/* Soft glow accents */}
         <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-blue-100/50 rounded-full blur-[120px]" />
         <div className="absolute bottom-[10%] left-[20%] w-[300px] h-[300px] bg-orange-100/30 rounded-full blur-[100px]" />
       </div>
@@ -52,30 +50,23 @@ export default function HeroTextAnimation() {
             </span>
           </motion.div>
 
-          {/* Heading */}
+          {/* Main headline */}
           <motion.h1
             variants={fadeUp}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-4 leading-[1.05]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.05]"
           >
+            Build payments that{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A7CFF] to-[#06B6D4]">
-              Ayris Global
+              just work.
             </span>
           </motion.h1>
 
-          {/* Tagline */}
-          <motion.p
-            variants={fadeUp}
-            className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-6 leading-tight"
-          >
-            The connected payment stack for modern enterprise.
-          </motion.p>
-
-          {/* Description */}
+          {/* Brand woven into description */}
           <motion.p
             variants={fadeUp}
             className="text-base sm:text-lg md:text-xl font-normal text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Accelerate certification, streamline acceptance, and build global payment products with a modular, cloud-native infrastructure.
+            <span className="font-semibold text-gray-900">Ayris Global</span> helps you accelerate certification, streamline acceptance, and build global payment products with a modular, cloud-native infrastructure.
           </motion.p>
 
           {/* Buttons */}

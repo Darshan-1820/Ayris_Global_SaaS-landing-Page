@@ -17,30 +17,30 @@ export default function Testimonials() {
       </div>
 
       <div className="relative w-full flex overflow-x-hidden">
-        <div className="animate-marquee flex whitespace-nowrap gap-8 py-4">
+        <div className="animate-marquee flex gap-4 sm:gap-8 py-4 pl-4 sm:pl-8">
           {[...testimonials, ...testimonials, ...testimonials].map((item, idx) => (
-            <div 
-              key={idx} 
-              className="inline-flex flex-col justify-center w-[350px] p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow whitespace-normal"
+            <div
+              key={idx}
+              className="inline-flex flex-col justify-center w-[260px] sm:w-[350px] flex-shrink-0 p-5 sm:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-shadow"
             >
-              <p className="text-lg text-gray-700 italic mb-4">&ldquo;{item.text}&rdquo;</p>
-              <p className="text-sm font-bold text-gray-900 uppercase tracking-wide text-right">— {item.company}</p>
+              <p className="text-base sm:text-lg text-gray-700 italic mb-4">&ldquo;{item.text}&rdquo;</p>
+              <p className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wide text-right">— {item.company}</p>
             </div>
           ))}
         </div>
-        
+
         {/* Gradients to fade edges */}
-        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
       </div>
 
       <style jsx global>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(calc(-100% / 3)); }
         }
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 30s linear infinite;
         }
       `}</style>
     </section>
