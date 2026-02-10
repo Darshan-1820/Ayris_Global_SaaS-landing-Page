@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Private conversation history
+CLAUDE.md
+
 # IDE and tool configs
 .agent/
 .agents/
