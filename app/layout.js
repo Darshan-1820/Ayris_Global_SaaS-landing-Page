@@ -15,6 +15,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://ayrisglobal.com"),
   title: "Ayris Global | Payment Infrastructure & Consulting",
   description: "Accelerate certification, streamline acceptance, and build global payment products with modular, cloud-native infrastructure. PCI-DSS compliant solutions by Ayris Global.",
   keywords: ["payment infrastructure", "PCI-DSS", "payment consulting", "EMV certification", "SoftPOS", "cloud-native payments", "Ayris Global"],
@@ -26,11 +27,20 @@ export const metadata = {
     siteName: "Ayris Global",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ayris Global — Build payments that just work.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ayris Global | Payment Infrastructure & Consulting",
     description: "Build payments that just work. Modular, cloud-native payment infrastructure for modern enterprises.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

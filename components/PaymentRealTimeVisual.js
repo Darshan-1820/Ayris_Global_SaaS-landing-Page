@@ -37,14 +37,14 @@ export default function PaymentRealTimeVisual() {
   const isVisa = activeCard === "visa";
 
   return (
-    <div className="w-full h-auto py-12 relative flex items-center justify-center font-sans select-none scale-90 sm:scale-100 origin-center">
-      
+    <div className="w-full h-auto py-12 relative flex items-center justify-center font-sans select-none origin-center overflow-hidden">
+
       {/* Background Connection Pulse (Optional / Subtle) */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-400/30 rounded-full blur-[80px]" />
       </div>
 
-      <div className="relative w-[680px] h-[450px] flex items-end select-none perspective-[2000px]">
+      <div className="relative w-[680px] h-[450px] flex items-end select-none perspective-[2000px] max-w-full">
 
         {/* --- PC MONITOR (Studio Display Style) --- */}
         <div className="absolute right-0 bottom-12 z-10 flex flex-col items-center group">

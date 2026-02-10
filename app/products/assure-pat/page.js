@@ -27,8 +27,14 @@ export default function AssurePATPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
-      
+    <div className="min-h-screen bg-white font-sans text-gray-900 overflow-x-hidden">
+      {/* Hide hero visual on phones (below 768px) */}
+      <style>{`
+        @media (max-width: 767px) {
+          .pat-hero-visual { display: none !important; }
+        }
+      `}</style>
+
       {/* 1. PRODUCT NAVBAR - Keep as is */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 flex items-center">
         <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
@@ -83,7 +89,7 @@ export default function AssurePATPage() {
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          <div className="grid xl:grid-cols-2 gap-6 xl:gap-12 items-center">
             
             {/* Left Content */}
             <div className="max-w-2xl">
@@ -128,8 +134,8 @@ export default function AssurePATPage() {
                 </div>
             </div>
 
-            {/* Right Column - Visual */}
-            <div className="relative">
+            {/* Right Column - Visual (hidden on mobile/tablet via media query above) */}
+            <div className="relative pat-hero-visual">
                  <PaymentRealTimeVisual />
             </div>
 

@@ -14,7 +14,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AssurePOSPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
+    <div className="min-h-screen bg-white font-sans text-gray-900 overflow-x-hidden">
       
       {/* 1. PRODUCT NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 flex items-center">
