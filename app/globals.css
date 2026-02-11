@@ -35,6 +35,9 @@
 @layer base {
   html {
     /* scroll-behavior: smooth; <- Removed to prevent scroll-up animation triggering effects */
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 transparent;
   }
   
   body {

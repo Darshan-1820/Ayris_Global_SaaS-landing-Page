@@ -91,7 +91,7 @@ const SpotlightCard = ({ children, className = "" }) => {
   );
 };
 
-export default function Features_AssurePay() {
+export default function Features_AyrisPay() {
   return (
     <section id="features" className="py-24 bg-black text-white">
         <div className="container mx-auto px-6 lg:px-12">

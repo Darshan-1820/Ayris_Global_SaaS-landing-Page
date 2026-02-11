@@ -18,7 +18,7 @@ export default function Footer() {
             <h4 className="text-white font-medium mb-6 text-sm uppercase tracking-widest text-blue-500">Products</h4>
             <ul className="space-y-4 text-sm">
               <li><a href="#" className="hover:text-white focus:text-white focus:outline-none focus:underline transition-colors duration-200">Assure PAT</a></li>
-              <li><a href="#" className="hover:text-white focus:text-white focus:outline-none focus:underline transition-colors duration-200">Assure PAY</a></li>
+              <li><a href="#" className="hover:text-white focus:text-white focus:outline-none focus:underline transition-colors duration-200">Ayris Pay</a></li>
               <li><a href="#" className="hover:text-white focus:text-white focus:outline-none focus:underline transition-colors duration-200">Assure POS</a></li>
             </ul>
           </div>

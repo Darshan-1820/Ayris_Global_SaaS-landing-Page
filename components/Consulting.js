@@ -117,10 +117,6 @@ export default function Consulting() {
                         <p className="text-gray-300 text-sm leading-relaxed">{service.desc}</p>
                     </SpotlightCard>
                 ))}
-                 
-                 {/* CTA Card as the last item to fill grid or separate? 
-                     Actually, having a CTA at the bottom is better.
-                  */}
             </div>
 
             {/* Bottom CTA */}

@@ -115,7 +115,7 @@ Multiple accessibility gaps across the site:
 The site had no sitemap, no robots.txt, and no Open Graph metadata — meaning search engines couldn't efficiently crawl the site, and social media shares showed no preview image or description.
 
 **Solution:**
-- Created `app/sitemap.js` using Next.js App Router convention — auto-generates XML sitemap at `/sitemap.xml` with all pages (home, assure-pat, assure-pay, assure-pos) with priorities and change frequencies
+- Created `app/sitemap.js` using Next.js App Router convention — auto-generates XML sitemap at `/sitemap.xml` with all pages (home, assure-pat, ayris-pay, assure-pos) with priorities and change frequencies
 - Verified `public/robots.txt` exists (allows all crawlers)
 - Added full Open Graph metadata to `app/layout.js`:
   - `metadataBase: new URL("https://ayrisglobal.com")` for resolving relative URLs
@@ -245,9 +245,9 @@ These fixed dimensions cause two problems:
    - Added `overflow-x-hidden` on page root wrapper divs
    - Added `overflow-hidden` + `max-w-full` on PaymentRealTimeVisual's own containers
 
-**Note:** Assure PAY and POS pages did NOT have this problem — their visuals (`PaymentControlVisual`, `POSHeroVisual`) use `w-full` with relative positioning, so they scale naturally on all screen sizes.
+**Note:** Ayris Pay and POS pages did NOT have this problem — their visuals (`AyrisPayHeroVisual`, `POSHeroVisual`) use responsive sizing, so they scale naturally on all screen sizes.
 
-**Files:** `app/products/assure-pat/page.js`, `components/PaymentRealTimeVisual.js`, `app/globals.css`, `app/products/assure-pay/page.js`, `app/products/assure-pos/page.js`
+**Files:** `app/products/assure-pat/page.js`, `components/PaymentRealTimeVisual.js`, `app/globals.css`, `app/products/ayris-pay/page.js`, `app/products/assure-pos/page.js`
 
 ---
 
@@ -333,4 +333,49 @@ This prevents ANY element from creating a horizontal scrollbar, regardless of it
 
 **Tradeoff:** If a developer accidentally makes content overflow, it will be silently clipped instead of showing a scrollbar. This is acceptable for a landing page but might hide bugs in more complex applications.
 
-**Files:** `app/globals.css`, `app/products/assure-pat/page.js`, `app/products/assure-pay/page.js`, `app/products/assure-pos/page.js`
+**Files:** `app/globals.css`, `app/products/assure-pat/page.js`, `app/products/ayris-pay/page.js`, `app/products/assure-pos/page.js`
+
+---
+
+## 12. Assure PAY → Ayris Pay Rebrand
+
+**Problem:**
+The product "Assure PAY" was being rebranded to "Ayris Pay". All references across the codebase needed updating — display text, routes, directories, component names, and SEO metadata.
+
+**Scope of Changes:**
+- **Directories:** `app/products/assure-pay/` → `app/products/ayris-pay/`, `components/assure-pay/` → `components/ayris-pay/` (via `git mv`)
+- **Component files renamed:** `WhatIs_AssurePay.js` → `WhatIs_AyrisPay.js`, `Features_AssurePay.js` → `Features_AyrisPay.js`, `WhyAssurePay.js` → `WhyAyrisPay.js`
+- **12 files updated:** page.js, layout.js, 3 component files, ProductSuite.js, Footer.js, SystemEcosystem.js, sitemap.js, README.md, Notes.md
+- **Function names, headings, TypingText content, nav links, CTA text, metadata** — all changed from "Assure PAY" to "Ayris Pay"
+
+**Lesson:** When rebranding a product, use `git mv` for directories first, then update all imports and display text. Run `npx next build` after to catch any broken imports. Use `grep` to sweep for any remaining old references.
+
+**Files:** Too many to list individually — see commit diff.
+
+---
+
+## 13. Ayris Pay Hero Visual: Phone Mockup with 3D Tilt
+
+**Problem:**
+The old Ayris Pay hero visual (`PaymentControlVisual.js`) was an abstract animation — a floating payment card token with orbiting rule chips. It didn't showcase the actual product UI.
+
+**Solution:**
+Replaced with `AyrisPayHeroVisual.js` — a phone mockup carousel with interactive 3D tilt:
+
+1. **Phone mockup swipe:** Two app screenshots (`Discover_Card.png` and `Diners_Card.png`, 1280x960 landscape with phone frame baked in) swap every 3 seconds using Framer Motion `AnimatePresence`
+2. **Scale crop:** `scale-[1.2]` on the images zooms in to crop the empty space around the phone device frame
+3. **3D tilt on hover:** Mouse position tracked via `useMotionValue`, mapped to `rotateX`/`rotateY` transforms (±8 degrees) with spring physics (`stiffness: 200, damping: 30`). Container uses `perspective: 1000px` and `preserve-3d`
+4. **Shine overlay:** A gradient overlay shifts direction based on mouse X position, creating a light reflection effect during tilt
+5. **Responsive:** Hidden on phones (`hidden md:block`) because landscape images make the phone device appear tiny on small screens
+
+**Enhancement options tested and rejected:**
+- Stat counter cards (floating glassmorphism cards) — looked generic/"vibe coded"
+- Glow pulse (breathing blue glow + orange burst on swap) — not selected
+- Connection lines + mini icons (dotted lines to shield/clock/lock) — not selected
+
+**Light/dark theme toggle attempted and reverted:**
+- Built a toggle that switched the hero to dark background with light-themed screenshots
+- Issues: light images were portrait (720x1280) vs dark landscape (1280x960) — aspect ratio mismatch caused layout jumps
+- User didn't like the effect, so reverted entirely. Deleted unused light theme images.
+
+**Files:** `components/ayris-pay/AyrisPayHeroVisual.js` (new), `components/ayris-pay/PaymentControlVisual.js` (deleted), `app/products/ayris-pay/page.js`

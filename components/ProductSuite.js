@@ -22,13 +22,13 @@ export default function ProductSuite() {
     },
     {
       id: "pay",
-      title: "Assure PAY",
+      title: "Ayris Pay",
       category: "Wallet & Rules Engine",
       description: "A platform for pre-transaction rule enforcement, predictable acceptance, and issued card controls.",
       icon: <CreditCard className="w-10 h-10 text-white" />,
       gradient: "from-orange-500 to-orange-600",
       buttonColor: "bg-orange-500 hover:bg-orange-600",
-      href: "/products/assure-pay"
+      href: "/products/ayris-pay"
     },
     {
       id: "pos",

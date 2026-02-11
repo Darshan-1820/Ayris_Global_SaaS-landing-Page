@@ -2,7 +2,7 @@ import React from 'react';
 import { Target, ShieldAlert, Share2, TrendingUp, Settings } from 'lucide-react';
 import TypingText from "@/components/TypingText";
 
-export default function WhyAssurePay() {
+export default function WhyAyrisPay() {
   const values = [
     {
       title: "Predictability",
@@ -45,10 +45,10 @@ export default function WhyAssurePay() {
     <section id="why" className="py-24 bg-white border-y border-gray-100">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Why Assure PAY?</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Why Ayris Pay?</h2>
           <div className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal min-h-[4rem]">
             <TypingText 
-              text="Organizations choose Assure PAY because it delivers predictable acceptance outcomes, proactive fraud and misuse prevention, secure and flexible spending delegation, and a scalable, digital-first lifecycle that reduces friction while giving complete control over payment behavior before authorization."
+              text="Organizations choose Ayris Pay because it delivers predictable acceptance outcomes, proactive fraud and misuse prevention, secure and flexible spending delegation, and a scalable, digital-first lifecycle that reduces friction while giving complete control over payment behavior before authorization."
               speed={20}
               delay={200}
             />

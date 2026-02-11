@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function WhatIs_AssurePay() {
+export default function WhatIs_AyrisPay() {
   return (
     <section className="pt-10 pb-24 bg-white relative overflow-hidden">
       {/* Subtle Background Pattern */}
@@ -13,10 +13,10 @@ export default function WhatIs_AssurePay() {
             Intelligent Control
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-10 tracking-tight leading-[1.1]">
-            What is Assure PAY?
+            What is Ayris Pay?
           </h2>
           <h3 className="text-2xl font-medium text-gray-900 mb-6 leading-relaxed">
-            Assure PAY is a <span className="relative inline-block px-1">digital wallet and rule engine
+            Ayris Pay is a <span className="relative inline-block px-1">digital wallet and rule engine
               <motion.svg 
                 className="absolute w-full h-2 bottom-0 left-0 text-[#0A7CFF]" 
                 viewBox="0 0 100 10" 

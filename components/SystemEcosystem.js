@@ -43,7 +43,7 @@ export default function SystemEcosystem() {
       <ModuleNode angle={288} delay={0.8} icon={<ShieldAlert size={20} />} label="Issue Mgmt" color="text-red-400" />
 
       {/* Floating Inputs checkin in */}
-      <InputTransaction delay={2} x={-180} y={100} label="Assure PAY" icon={<Smartphone size={16}/>} />
+      <InputTransaction delay={2} x={-180} y={100} label="Ayris Pay" icon={<Smartphone size={16}/>} />
       <InputTransaction delay={3.5} x={180} y={-80} label="Assure POS" icon={<CreditCard size={16}/>} />
 
     </div>

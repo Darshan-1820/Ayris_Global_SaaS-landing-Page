@@ -13,7 +13,7 @@ A modern, responsive landing page for **Ayris Global**, a payment infrastructure
 | Section | Description |
 |---------|-------------|
 | **Hero** | "This is Ayris Global" branded opener with animated gradient blobs, interactive mouse-following glow, and staggered text animations |
-| **Product Suite** | Three clickable product cards (Assure PAT, Assure PAY, Assure POS) linking to individual product pages |
+| **Product Suite** | Three clickable product cards (Assure PAT, Ayris Pay, Assure POS) linking to individual product pages |
 | **Why Choose Us** | Core advantages with icon-based feature cards |
 | **Consulting** | Payment consulting services with spotlight hover-effect cards on a dark background |
 | **Testimonials** | Auto-scrolling marquee of client testimonials with edge fade gradients |
@@ -26,7 +26,7 @@ A modern, responsive landing page for **Ayris Global**, a payment infrastructure
 | Page | Route | What it covers |
 |------|-------|----------------|
 | **Assure PAT** | `/products/assure-pat` | Automated payment acceptance testing platform. Features, ROI spotlight, demo booking form |
-| **Assure PAY** | `/products/assure-pay` | Programmable payment controls for spending management. Features and benefits |
+| **Ayris Pay** | `/products/ayris-pay` | Programmable payment controls for spending management. Features and benefits |
 | **Assure POS** | `/products/assure-pos` | Mobile SoftPOS simulator for terminal testing. Features with phone mockup visual |
 
 Each product page has its own navigation bar, hero section with visual, feature breakdowns, and a CTA section.
@@ -144,14 +144,14 @@ app/
   api/contact/route.js   # Contact form API (Resend + rate limiting)
   products/
     assure-pat/          # Assure PAT product page + layout (SEO)
-    assure-pay/          # Assure PAY product page + layout (SEO)
+    ayris-pay/          # Ayris Pay product page + layout (SEO)
     assure-pos/          # Assure POS product page + layout (SEO)
 
 components/
   hero-options/
     HeroOption4.js       # Homepage hero (animated blobs + mouse glow)
   assure-pat/            # PAT-specific components (features, ROI, etc.)
-  assure-pay/            # PAY-specific components
+  ayris-pay/            # PAY-specific components
   assure-pos/            # POS-specific components
   Navbar.js              # Global navbar (hidden on product pages)
   ProductSuite.js        # Product cards grid (fully clickable)
